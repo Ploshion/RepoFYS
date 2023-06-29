@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TestFrag.Entities;
@@ -7,7 +8,7 @@ namespace TestFrag.Controllers
 {
     [ApiController]
     [Route("api/Genero")]
-    // [Authorize]
+    [Authorize]
     public class GeneroController : ControllerBase
     {
         private readonly ApplicationDbContext context;

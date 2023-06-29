@@ -9,7 +9,7 @@ namespace TestFrag.Controllers
 
     [ApiController]
     [Route("api/Actores")]
-    // [Authorize]
+    [Authorize]
     public class ActorController : ControllerBase
     {
         private readonly ApplicationDbContext context;

@@ -33,10 +33,14 @@ export const { getActor, addActor, deleteActor, editActors,IdActor } = actorSlic
 
 export default actorSlice.reducer;
 
+const token = window.localStorage.getItem('token');
 
+const config = {
+  headers: { Authorization: `Bearer ${token}` }
+};
 export const FetchActors = () => (dispatch) => {
    
-    axios.get(URL+"/Actores")
+    axios.get(URL+"/Actores" , config)
       .then((response) => {
         console.log(response.data);
         dispatch(getActor(response.data));
@@ -45,11 +49,7 @@ export const FetchActors = () => (dispatch) => {
 };
 
 export const createActor = (params) => (dispatch) => {
-  const token = window.localStorage.getItem('token');
 
-  const config = {
-    headers: { Authorization: `Bearer ${token}` }
-  };
  console.log(params)
   return new Promise((resolve, reject) => {
     axios
@@ -72,7 +72,7 @@ export const createActor = (params) => (dispatch) => {
 
 export const FetchById = (Id) => (dispatch) => {
    
-  axios.get(URL+"/Actores/"+Id)
+  axios.get(URL+"/Actores/"+Id , config)
     .then((response) => {
       console.log(response.data);
       dispatch(IdActor(response.data));
@@ -89,7 +89,7 @@ export const EditActor = (params) => (dispatch) => {
         "nombre": params.nombre,
         "apellido": params.apellido,
         "pais": params.pais,
-      })
+      } , config)
       .then((response) => {
         console.log(response.data);
         dispatch(editActors(response.data));
@@ -103,11 +103,6 @@ export const EditActor = (params) => (dispatch) => {
 };
 
 export const deleteActorById = (id) => (dispatch) => {
-  const token = window.localStorage.getItem('token');
-  console.log(id)
-  const config = {
-    headers: { Authorization: `Bearer ${token}` }
-  };
 
   return new Promise((resolve, reject) => {
     axios

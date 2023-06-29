@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TestFrag.Entities;
@@ -7,6 +8,7 @@ namespace TestFrag.Controllers
 {
     [ApiController]
     [Route("api/Peliculas")]
+    [Authorize]
     public class PeliculaController : ControllerBase
     {
         private readonly ApplicationDbContext context;

@@ -37,10 +37,16 @@ export const { getDirector, getDirectorById, editaDirector, deleteDirector, crea
 
 export default directorSlice.reducer;
 
+const token = window.localStorage.getItem('token');
+
+const config = {
+  headers: { Authorization: `Bearer ${token}` }
+};
+
 
 export const FetchDirectors = () => (dispatch) => {
    
-    axios.get(URL+"/Director")
+    axios.get(URL+"/Director" , config)
       .then((response) => {
         console.log(response.data);
         dispatch(getDirector(response.data));
@@ -49,11 +55,7 @@ export const FetchDirectors = () => (dispatch) => {
 };
 
 export const createDirector = (params) => (dispatch) => {
-  const token = window.localStorage.getItem('token');
 
-  const config = {
-    headers: { Authorization: `Bearer ${token}` }
-  };
  
   return new Promise((resolve, reject) => {
     axios
@@ -79,7 +81,7 @@ export const createDirector = (params) => (dispatch) => {
 
 export const FetchDirectorById = (Id) => (dispatch) => {
    
-  axios.get(URL+"/Director/"+Id)
+  axios.get(URL+"/Director/"+Id , config)
     .then((response) => {
       console.log(response.data);
       dispatch(getDirectorById(response.data));
@@ -96,7 +98,7 @@ export const EditDirector = (params) => (dispatch) => {
         "nombre": params.nombre,
         "apellido": params.apellido,
         "idPais": params.idPais,
-      })
+      } , config)
       .then((response) => {
         console.log(response.data);
         dispatch(editaDirector(response.data));
@@ -111,12 +113,6 @@ export const EditDirector = (params) => (dispatch) => {
 
 
 export const deleteDirectorById = (id) => (dispatch) => {
-  const token = window.localStorage.getItem('token');
-  console.log(id)
-  const config = {
-    headers: { Authorization: `Bearer ${token}` }
-  };
-
   return new Promise((resolve, reject) => {
     axios
       .delete(`${URL}/Director/${id}`, config)

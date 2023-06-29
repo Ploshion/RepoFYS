@@ -152,7 +152,7 @@ export const DirectorList = () => {
                   <Grid item xs={12} sm={12} md={10}>
                     <Card className={classes.card}>
                       <CardHeader
-                        title="Lista de Clientes"
+                        title="Lista de Directores"
                         action={
                           <Button
                             variant="contained"

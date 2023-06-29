@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LA/xqEznYJ+B0yXX5m2m100D8NIL31DwtESN5PioyA9NLjjddVnxrkSmtEiU+PT3j9saAmODkfuTIfQ9wuN6TA==",
+  "dgSpecHash": "2Tga7D7wMVUIw+cnCD+hS8KV9oEyit6zN/vqNxcW0FKBp4jghAgYY/3xKh1ITcLY3lo4LE1fhE6qRKKoq+JBpQ==",
   "success": true,
-  "projectFilePath": "E:\\xampp\\htdocs\\TestSoft\\TestFragansa\\TestFrag\\TestFrag.csproj",
+  "projectFilePath": "E:\\xampp\\htdocs\\TestSoft\\RepoFYS\\TestFragansa\\TestFrag\\TestFrag.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\carlo\\.nuget\\packages\\automapper\\10.0.0\\automapper.10.0.0.nupkg.sha512",
     "C:\\Users\\carlo\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.0.1\\automapper.extensions.microsoft.dependencyinjection.8.0.1.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\xampp\\htdocs\\TestSoft\\TestFragansa\\TestFrag\\TestFrag.csproj": {}
+    "E:\\xampp\\htdocs\\TestSoft\\RepoFYS\\TestFragansa\\TestFrag\\TestFrag.csproj": {}
   },
   "projects": {
-    "E:\\xampp\\htdocs\\TestSoft\\TestFragansa\\TestFrag\\TestFrag.csproj": {
+    "E:\\xampp\\htdocs\\TestSoft\\RepoFYS\\TestFragansa\\TestFrag\\TestFrag.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\xampp\\htdocs\\TestSoft\\TestFragansa\\TestFrag\\TestFrag.csproj",
+        "projectUniqueName": "E:\\xampp\\htdocs\\TestSoft\\RepoFYS\\TestFragansa\\TestFrag\\TestFrag.csproj",
         "projectName": "TestFrag",
-        "projectPath": "E:\\xampp\\htdocs\\TestSoft\\TestFragansa\\TestFrag\\TestFrag.csproj",
+        "projectPath": "E:\\xampp\\htdocs\\TestSoft\\RepoFYS\\TestFragansa\\TestFrag\\TestFrag.csproj",
         "packagesPath": "C:\\Users\\carlo\\.nuget\\packages\\",
-        "outputPath": "E:\\xampp\\htdocs\\TestSoft\\TestFragansa\\TestFrag\\obj\\",
+        "outputPath": "E:\\xampp\\htdocs\\TestSoft\\RepoFYS\\TestFragansa\\TestFrag\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\carlo\\AppData\\Roaming\\NuGet\\NuGet.Config",

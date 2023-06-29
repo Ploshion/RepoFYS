@@ -38,10 +38,15 @@ export const { getCountry, deleteCountry, CountryById, CountryEdit, CountryDelet
 
 export default countrySlice.reducer;
 
+const token = window.localStorage.getItem('token');
+const config = {
+  headers: { Authorization: `Bearer ${token}` }
+};
+
 
 export const FetchCountrys = () => (dispatch) => {
    
-    axios.get(URL+"/Pais")
+    axios.get(URL+"/Pais", config)
       .then((response) => {
         console.log(response.data);
         dispatch(getCountry(response.data));
@@ -50,11 +55,7 @@ export const FetchCountrys = () => (dispatch) => {
 };
 
 export const createPais = (params) => (dispatch) => {
-  const token = window.localStorage.getItem('token');
 
-  const config = {
-    headers: { Authorization: `Bearer ${token}` }
-  };
  console.log(params)
   return new Promise((resolve, reject) => {
     axios
@@ -75,11 +76,6 @@ export const createPais = (params) => (dispatch) => {
 };
 
 export const deletePaisId = (id) => (dispatch) => {
-  const token = window.localStorage.getItem('token');
-  console.log(id)
-  const config = {
-    headers: { Authorization: `Bearer ${token}` }
-  };
 
   return new Promise((resolve, reject) => {
     axios
@@ -98,7 +94,7 @@ export const deletePaisId = (id) => (dispatch) => {
 
 export const FetchPaisById = (Id) => (dispatch) => {
    console.log(Id)
-  axios.get(URL+"/Pais/"+Id)
+  axios.get(URL+"/Pais/"+Id, config)
     .then((response) => {
       console.log(response.data);
       dispatch(CountryById(response.data));
@@ -114,7 +110,7 @@ export const EditPais = (params) => (dispatch) => {
       .put(`${URL}/Pais`, {
        "idPais": params.idPais,
        "nombre": params.nombre
-      })
+      }, config)
       .then((response) => {
         console.log(response.data);
         dispatch(CountryEdit(response.data));
@@ -128,11 +124,6 @@ export const EditPais = (params) => (dispatch) => {
 };
 
 export const deletePaisById = (id) => (dispatch) => {
-  const token = window.localStorage.getItem('token');
-  console.log(id)
-  const config = {
-    headers: { Authorization: `Bearer ${token}` }
-  };
 
   return new Promise((resolve, reject) => {
     axios

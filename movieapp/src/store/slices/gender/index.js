@@ -35,10 +35,16 @@ export const { getGenero, deleteGenero, getGeneroId, editGeneroId, addGeneroId }
 
 export default generoSlice.reducer;
 
+const token = window.localStorage.getItem('token');
+
+const config = {
+  headers: { Authorization: `Bearer ${token}` }
+};
+
 
 export const FetchGeneros = () => (dispatch) => {
    
-    axios.get(URL+"/Genero")
+    axios.get(URL+"/Genero", config)
       .then((response) => {
         console.log(response.data);
         dispatch(getGenero(response.data));
@@ -47,11 +53,7 @@ export const FetchGeneros = () => (dispatch) => {
 };
 
 export const createGenero = (params) => (dispatch) => {
-  const token = window.localStorage.getItem('token');
 
-  const config = {
-    headers: { Authorization: `Bearer ${token}` }
-  };
  console.log(params)
   return new Promise((resolve, reject) => {
     axios
@@ -73,7 +75,7 @@ export const createGenero = (params) => (dispatch) => {
 
 export const FetchGeneroById = (Id) => (dispatch) => {
   console.log(Id)
- axios.get(URL+"/Genero/"+Id)
+ axios.get(URL+"/Genero/"+Id , config)
    .then((response) => {
      console.log(response.data);
      dispatch(getGeneroId(response.data));
@@ -89,7 +91,7 @@ export const EditGenero = (params) => (dispatch) => {
       .put(`${URL}/Genero`, {
         "idGenero": params.idGenero,
         "nombre": params.nombre
-      })
+      } , config)
       .then((response) => {
         console.log(response.data);
         dispatch(editGeneroId(response.data));
@@ -103,11 +105,6 @@ export const EditGenero = (params) => (dispatch) => {
 };
 
 export const deleteGeneroId = (id) => (dispatch) => {
-  const token = window.localStorage.getItem('token');
-  console.log(id)
-  const config = {
-    headers: { Authorization: `Bearer ${token}` }
-  };
 
   return new Promise((resolve, reject) => {
     axios

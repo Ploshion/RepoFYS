@@ -34,13 +34,14 @@ export const { getMovie, getMovieById, editMovie, deleteMovie, addMovie } = movi
 
 export default movieSlice.reducer;
 
+const token = window.localStorage.getItem('token');
+const config = {
+  headers: { Authorization: `Bearer ${token}` }
+};
+
 
 export const createMovies = (dataMovie) => (dispatch) => {
-  const token = window.localStorage.getItem('token');
-
-  const config = {
-    headers: { Authorization: `Bearer ${token}` }
-  };
+  
   console.log(dataMovie)
 
   return new Promise((resolve, reject) => {
@@ -71,7 +72,7 @@ export const createMovies = (dataMovie) => (dispatch) => {
 
 export const FetchMovie = () => (dispatch) => {
    
-    axios.get(URL+"/Peliculas")
+    axios.get(URL+"/Peliculas", config)
       .then((response) => {
         // console.log(response.data);
         dispatch(getMovie(response.data));
@@ -81,8 +82,11 @@ export const FetchMovie = () => (dispatch) => {
 
   
 export const FetchMovieById = (Id) => (dispatch) => {
+  const config = {
+    headers: { Authorization: `Bearer ${token}` }
+  };
    console.log(Id);
-    axios.get(URL+"/Peliculas/"+Id)
+    axios.get(URL+"/Peliculas/"+Id , config)
       .then((response) => {
         console.log(response.data);
         dispatch(getMovieById(response.data));
