@@ -11,6 +11,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { Container } from "@mui/material";
 import imgLogin from '../../assets/img/loginImg.png'
+import imgPelis from '../../assets/img/Peliculas.jpg'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchToken } from '../../store/slices/login';
 import { useState, useEffect } from 'react'

@@ -108,7 +108,7 @@ export const EditMovies = (params) => (dispatch) => {
         "reseña": params.reseña,
         "imagenUrl": params.imagenUrl,
         "codigoTrailer": params.codigoTrailer
-      })
+      }, config)
       .then((response) => {
         console.log(response.data);
         dispatch(editMovie(response.data));
